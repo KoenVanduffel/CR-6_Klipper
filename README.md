@@ -38,21 +38,31 @@ Now we need to copy the example printer definition to the main printer.cfg file.
 * "/home/pi/klipper/config/generic-bigtreetech-skr-cr6-v1.0.cfg" is for the BTT CR6 board
 
 run:
-* cp /home/pi/klipper/config/generic-bigtreetech-skr-cr6-v1.0.cfg /home/pi/klipper_config/printer.cfg
-replace the board file with the appropriate one for your mainboard
+For the 4.5.2 motherboard
+* cp /home/pi/klipper/config/printer-creality-cr6se-2020.cfg /home/pi/klipper_config/printer.cfg
+
+For the 4.5.3 and ERA boards
+* cp /home/pi/klipper/config/printer-creality-cr6se-2021.cfg /home/pi/klipper_config/printer.cfg
+
+For the BTT CR6 board 
+* copy the printer.cfg file from this repo to /home/pi/klipper_config/
+
+Copy the other config files to /home/pi/klipper_config/
  
 Now we need to edit the printer.cfg file
 cd /home/pi/klipper_config/
 nano printer.cfg
 [in the stepper_z] section chenge endstop_pin:... to endstop_pin: probe:z_virtual_endstop (if not already there)
 IN the [mcu] section add: 
- restart_method: command
+ restart_method: command (if not already there)
 Just below the comments section add:
- [include CR6.cfg]
- [include generic.cfg]
+ [include CR6.cfg] (if not already there)
+ [include generic.cfg] (if not already there)
 
 These 2 files will house the CR6 specific and generic setup items. At a later stage we can allways add extra's here. Putting all edits there keeps our printer.cfg file clean.
 Now we are ready to build the actual printer firmware.
+
+## Now we can make the actual firmware to be flashed to the printer mainboard
 
 * CD klipper
 * sudo service klipper stop
