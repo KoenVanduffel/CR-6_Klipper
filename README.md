@@ -1,7 +1,7 @@
 # CR-6_Klipper
 A repository for Klipper firmware details for the Creality CR-6 printers.
 
-##Installation description:
+## Installation description:
 
 Head over to: https://3dprintbeginner.com/how-to-install-fluiddpi-on-raspberry-pi/
 
@@ -18,6 +18,7 @@ reboot the PI with
  
 After reboot run:
 * sudo apt update && sudo apt upgrade -y
+
 to update the PI to the latest security levels. You will want to run this command from time to time to keep your PI updated.
 reboot the PI with "sudo reboot"
  
@@ -38,10 +39,39 @@ Now we need to copy the example printer definition to the main printer.cfg file.
 
 run:
 * cp /home/pi/klipper/config/generic-bigtreetech-skr-cr6-v1.0.cfg /home/pi/klipper_config/printer.cfg
+replace the board file with the appropriate one for your mainboard
+ 
+Now we need to edit the printer.cfg file
+cd /home/pi/klipper_config/
+nano printer.cfg
+[in the stepper_z] section chenge endstop_pin:... to endstop_pin: probe:z_virtual_endstop (if not already there)
+IN the [mcu] section add: 
+ restart_method: command
+Just below the comments section add:
+ [include CR6.cfg]
+ [include generic.cfg]
 
-replace then board file with the appropriate one for your mainboard
- 
- 
- 
+These 2 files will house the CR6 specific and generic setup items. At a later stage we can allways add extra's here. Putting all edits there keeps our printer.cfg file clean.
+Now we are ready to build the actual printer firmware.
+
+* CD klipper
+* sudo service klipper stop
+* make menuconfig
+* select microcontroller - STM32 - processor model STM32F103 (is the default) 
+* Bootloader - 28KiB 
+* communication interface USB (is the default)
+* GPIO pins to set at micro-controller startup !PA14
+
+The screen should now look like this:
+
+![image](https://user-images.githubusercontent.com/13643644/123483020-6a823c80-d606-11eb-8dfc-3924ef9c4a7f.png)
+
+* Q and save the configuration
+* make
+
+this will build the firmware and output the file /home/pi/klipper/out/klipper.bin
+download klipper.bin, rename it to firmware.bin and write to an SD card
+### The SDcard HAS TO BE maximum 16 GB formatted as FAT32 with 4096 bits sector size. Any other format and the processor simply cannot read the SD card.
+A micro-SDcard in and SD adapter works perfectly fine as long as the formatting is correct.
  
  ## IN PROGRESS
