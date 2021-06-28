@@ -1,4 +1,6 @@
 # CR-6_Klipper
+
+# I am rewriting the instructions as an incompatibiity between the different boards was discovered
 A repository for Klipper firmware details for the Creality CR-6 printers.
 
 ## Installation description:
