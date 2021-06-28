@@ -48,7 +48,7 @@ For the BTT CR6 board:
 * copy the klipper_config/printer.cfg file from this repo to /home/pi/klipper_config/
 
 For all boards:
-From Copy the other config files to /home/pi/klipper_config/
+* From Copy the other config files to /home/pi/klipper_config/
  
 Now we need to edit the printer.cfg file
 cd /home/pi/klipper_config/
