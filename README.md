@@ -51,14 +51,17 @@ For all boards:
 * From the GitHub repo copy klipper_config/CR6.cfg to /home/pi/klipper_config/
  
 Now we need to edit the printer.cfg file
-cd /home/pi/klipper_config/
-nano printer.cfg
-[in the stepper_z] section chenge endstop_pin:... to endstop_pin: probe:z_virtual_endstop (if not already there)
-IN the [mcu] section add: 
- restart_method: command (if not already there)
-Just below the comments section add:
- [include CR6.cfg] (if not already there)
- [include fluidd.cfg] (if not already there)
+
+* cd /home/pi/klipper_config/
+* nano printer.cfg
+* [in the stepper_z] section chenge endstop_pin:... to endstop_pin: probe:z_virtual_endstop (if not already there)
+* IN the [mcu] section add: 
+  restart_method: command (if not already there)
+* Just below the comments section add:
+
+  [include CR6.cfg] (if not already there)
+  
+  [include fluidd.cfg] (if not already there)
 
 These 2 files will house the CR6 specific setup items. At a later stage we can allways add extra's here. Putting all edits there keeps our printer.cfg file clean.
 Now we are ready to build the actual printer firmware.
