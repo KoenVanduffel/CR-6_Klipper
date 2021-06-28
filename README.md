@@ -45,10 +45,10 @@ For the 4.5.3 and ERA boards:
 * cp /home/pi/klipper/config/printer-creality-cr6se-2021.cfg /home/pi/klipper_config/printer.cfg
 
 For the BTT CR6 board:
-* copy the klipper_config/printer.cfg file from this repo to /home/pi/klipper_config/
+* From the GitHub copy the klipper_config/printer.cfg file from this repo to /home/pi/klipper_config/
 
 For all boards:
-* From Copy the other config files to /home/pi/klipper_config/
+* From the GitHub repo copy klipper_config/CR6.cfg to /home/pi/klipper_config/
  
 Now we need to edit the printer.cfg file
 cd /home/pi/klipper_config/
