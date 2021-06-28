@@ -84,4 +84,16 @@ Copy this to the [mcu] section of Klipper.cfg and replace the string present the
 ## From this point you should have a working Klipper installation.
 You can proceed to the functionality checks as described on the Klipper site: https://www.klipper3d.org/Config_checks.html
 
+## A few words to the Klipper way of handling z_offset.
+
+Klipper defines z_offset at the point where it has measured the bed relative to the actual/real bed position. In contrast to Marlin defining it as an offset the nozzle needs to move in order to be at the actual bed position.
+
+This means that z_offset as defined in the [probe] section of printer.cfg is a negative value with principaly the same absolute value as in Marlin, only negative.
+
+The default z_offset has been set at -0.25 to be aconservative value and will hence lead to the printhead being too far from the bed. Baby step the nozzle down untill the correct distance is observed and correct the z_offset by subtracting the baby step value from the z_offset
+
+Hence is you baby stepped down to -0.05 mm the z_offset becommes -0.25 - -0.05 = -0.20 mm
+
+Something to get used to when comming from Marlin.
+
  ## IN PROGRESS
