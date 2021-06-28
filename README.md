@@ -58,6 +58,7 @@ IN the [mcu] section add:
  restart_method: command (if not already there)
 Just below the comments section add:
  [include CR6.cfg] (if not already there)
+ [include fluidd.cfg] (if not already there)
 
 These 2 files will house the CR6 specific setup items. At a later stage we can allways add extra's here. Putting all edits there keeps our printer.cfg file clean.
 Now we are ready to build the actual printer firmware.
@@ -83,5 +84,8 @@ this will build the firmware and output the file /home/pi/klipper/out/klipper.bi
 download klipper.bin, rename it to firmware.bin and write to an SD card
 ### The SDcard HAS TO BE maximum 16 GB formatted as FAT32 with 4096 bits sector size. Any other format and the processor simply cannot read the SD card.
 A micro-SDcard in and SD adapter works perfectly fine as long as the formatting is correct.
+
+## From this point you should have a working Klipper installation.
+You can proceed to the functionality checks as described on the Klipper site: https://www.klipper3d.org/Config_checks.html
  
  ## IN PROGRESS
