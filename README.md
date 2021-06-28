@@ -2,8 +2,6 @@
 A repository for Klipper firmware details for the Creality CR-6 printers.
 This repo focusses on using Klipper and the Fluidd front end. In this configuration there is no need for OctoPi - Fluidd is way more responsive than OctoPi.
 
-Bear in mind that Klipper does not support the CR6 screen. I use an old tablet instead. This works very well as the Fluidd interface is very responsive.
-
 ## Installation description:
 
 Download the FluidPI image from the FluiddPI GitHub repo:
@@ -72,7 +70,17 @@ download klipper.bin, rename it to firmware.bin and write to an SD card
 
 A micro-SDcard in and SD adapter works perfectly fine as long as the formatting is correct.
 
+The last step is to give Klipper the address of the USB connection. To ontain the addres in the ssh terminal run:
+```bash
+ls /dev/serial/by-id/*
+```
 
+the output should looke like this:
+```bash
+/dev/serial/by-id/usb-Klipper_stm32f103xe_36FFD8054255373740662057-if00
+```
+
+Copy this to the [mcu] section of Klipper.cfg and replace the string present there
 ## From this point you should have a working Klipper installation.
 You can proceed to the functionality checks as described on the Klipper site: https://www.klipper3d.org/Config_checks.html
 
