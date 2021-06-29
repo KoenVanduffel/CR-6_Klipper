@@ -32,7 +32,7 @@ Now we need to copy the printer definition from this repo to the main printer.cf
 
 Select the config file appropriate for your motherboard and copy it to /home/pi/klipper_config
 
-Rename the file to klipper.config
+Rename the file to klipper.cfg
 
 For all motherboards copy CR6.cfg to /home/pi/klipper_config
 
@@ -81,6 +81,9 @@ the output should looke like this:
 ```
 
 Copy this to the [mcu] section of Klipper.cfg and replace the string present there
+
+You have to use a Linux aware text editor. The standard Windows tools will add the windows line ends which don't work on Linux. My favorite tool is Notepad++ which is a free download  https://notepad-plus-plus.org/downloads/
+
 ## From this point you should have a working Klipper installation.
 You can proceed to the functionality checks as described on the Klipper site: https://www.klipper3d.org/Config_checks.html
 
