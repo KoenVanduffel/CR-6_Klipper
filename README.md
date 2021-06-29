@@ -70,7 +70,7 @@ download klipper.bin, rename it to firmware.bin and write to an SD card
 
 A micro-SDcard in and SD adapter works perfectly fine as long as the formatting is correct.
 
-The last step is to give Klipper the address of the USB connection. To ontain the addres in the ssh terminal run:
+The last step is to give Klipper the address of the USB connection. Make sure your printer is on and connected to the RaspberryPi. To ontain the addres in the ssh terminal run:
 ```bash
 ls /dev/serial/by-id/*
 ```
