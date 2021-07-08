@@ -80,7 +80,7 @@ the output should looke like this:
 /dev/serial/by-id/usb-Klipper_stm32f103xe_36FFD8054255373740662057-if00
 ```
 
-Copy this to the [mcu] section of Klipper.cfg and replace the string present there
+Copy this to the [mcu] section of klipper.cfg and replace the string present there
 
 You have to use a Linux aware text editor. The standard Windows tools will add the windows line ends which don't work on Linux. My favorite tool is Notepad++ which is a free download  https://notepad-plus-plus.org/downloads/
 
