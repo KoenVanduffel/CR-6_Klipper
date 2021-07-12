@@ -65,6 +65,8 @@ For the BTT CR6 board:
 
 The screen should now **exactly** look like this for the 4.5.2, 4.5.3 and ERA boards:
 
+![image](https://user-images.githubusercontent.com/13643644/125346549-2e670f80-e35a-11eb-8940-d584d0bb70d7.png)
+
 
 The screen should now **exactly** look like this for the BTT CR6 board:
 
