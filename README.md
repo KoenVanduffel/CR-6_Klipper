@@ -2,6 +2,8 @@
 A repository for Klipper firmware details for the Creality CR-6 printers.
 This repo focusses on using Klipper and the Fluidd front end. In this configuration there is no need for OctoPi - Fluidd is way more responsive than OctoPi.
 
+This has been tested on a BTT CR6 board by myself. For the 4.5.2 board I can cornfirm that the firmware connects from the Raspberry Pi to the board but I can't confirm the full configuration. For the 4.5.3 and ERA boards I have no confirmation as yet. If anyone installs Klipper on the stock CR-6 boards please let me know whether everything works as intended.
+
 ## Installation description:
 
 Download the FluidPI image from the FluiddPI GitHub repo:
@@ -32,23 +34,39 @@ Now we need to copy the printer definition from this repo to the main printer.cf
 
 Select the config file appropriate for your motherboard and copy it to /home/pi/klipper_config
 
-Rename the file to klipper.cfg
+Rename the file to klipper.config
 
 For all motherboards copy CR6.cfg to /home/pi/klipper_config
 
 ## Now we can make the actual firmware to be flashed to the printer mainboard
 
+
+For all stock creality boards set the following config:
 ```bash
 CD klipper
 sudo service klipper stop
 make menuconfig
-          select microcontroller - STM32 - processor model STM32F103 (is the default)
-          Bootloader - 28KiB
-          communication interface USB (is the default)
-          GPIO pins to set at micro-controller startup !PA14
+            select microcontroller - "STM32"
+            processor model "STM32F103" (is the default)
+            Bootloader - "28KiB"
+            Communication interface "Serial (on USART1 PA10/PA9)"
+
 ```
 
-The screen should now **exactly** look like this:
+For the BTT CR6 board:
+```bash
+            tick "enable extra low-level configuration options"
+            select microcontroller - "STM32"
+            processor model "STM32F103" (is the default)
+            Bootloader - "28KiB"
+            communication interface USB (is the default)
+            set GPIO pins to set at micro-controller startup to "!PA14"
+```
+
+The screen should now **exactly** look like this for the 4.5.2, 4.5.3 and ERA boards:
+
+
+The screen should now **exactly** look like this for the BTT CR6 board:
 
 ![image](https://user-images.githubusercontent.com/13643644/123483020-6a823c80-d606-11eb-8dfc-3924ef9c4a7f.png)
 
@@ -70,7 +88,7 @@ download klipper.bin, rename it to firmware.bin and write to an SD card
 
 A micro-SDcard in and SD adapter works perfectly fine as long as the formatting is correct.
 
-The last step is to give Klipper the address of the USB connection. Make sure your printer is on and connected to the RaspberryPi. To ontain the addres in the ssh terminal run:
+The last step is to give Klipper the address of the USB connection. To ontain the addres in the ssh terminal run:
 ```bash
 ls /dev/serial/by-id/*
 ```
@@ -80,23 +98,8 @@ the output should looke like this:
 /dev/serial/by-id/usb-Klipper_stm32f103xe_36FFD8054255373740662057-if00
 ```
 
-Copy this to the [mcu] section of klipper.cfg and replace the string present there
-
-You have to use a Linux aware text editor. The standard Windows tools will add the windows line ends which don't work on Linux. My favorite tool is Notepad++ which is a free download  https://notepad-plus-plus.org/downloads/
-
+Copy this to the [mcu] section of Klipper.cfg and replace the string present there
 ## From this point you should have a working Klipper installation.
 You can proceed to the functionality checks as described on the Klipper site: https://www.klipper3d.org/Config_checks.html
-
-## A few words to the Klipper way of handling z_offset.
-
-Klipper defines z_offset at the point where it has measured the bed relative to the actual/real bed position. In contrast to Marlin defining it as an offset the nozzle needs to move in order to be at the actual bed position.
-
-This means that z_offset as defined in the [probe] section of printer.cfg is a negative value with principaly the same absolute value as in Marlin, only negative.
-
-The default z_offset has been set at -0.25 to be aconservative value and will hence lead to the printhead being too far from the bed. Baby step the nozzle down untill the correct distance is observed and correct the z_offset by subtracting the baby step value from the z_offset
-
-Hence is you baby stepped down to -0.05 mm the z_offset becommes -0.25 - -0.05 = -0.20 mm
-
-Something to get used to when comming from Marlin.
 
  ## IN PROGRESS
