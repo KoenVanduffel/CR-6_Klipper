@@ -40,6 +40,7 @@ For all motherboards copy CR6.cfg to /home/pi/klipper_config
 
 ## Now we can make the actual firmware to be flashed to the printer mainboard
 
+For convenience precompiled firmwares have been provided in the firmware directory. For now the BTT CR6 is tested and in use by myself, the stock Creality one is only confirmed to connect properly to my old 4.5.2 board. I have not actually printed with it. Please mention your mileage so I can confirm their working.
 
 For all stock creality boards set the following config:
 ```bash
