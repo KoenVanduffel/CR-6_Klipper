@@ -34,7 +34,7 @@ Now we need to copy the printer definition from this repo to the main printer.cf
 
 Select the config file appropriate for your motherboard and copy it to /home/pi/klipper_config
 
-Rename the file to klipper.config
+Rename the file to klipper.cfg
 
 For all motherboards copy CR6.cfg to /home/pi/klipper_config
 
