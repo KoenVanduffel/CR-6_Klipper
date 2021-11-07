@@ -1,5 +1,5 @@
 # The Klipper configuration files for the Creality CR-6 SE
-I assume that the Creality CR-6 Max has teh same config except for the size of the bed. Anyone willing to make and check it? I will put the config up here as well.
+I assume that the Creality CR-6 Max has the same config except for the size of the bed. Anyone willing to make and check it? I will put the config up here as well.
 
 There are a few main configuration files we have to make:
 * printer.cfg
