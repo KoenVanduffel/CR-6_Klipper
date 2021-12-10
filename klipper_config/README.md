@@ -10,10 +10,10 @@ There are a few main configuration files we have to make:
 The CR6.cfg file contains a few handy macro's. To start and stop prints add the following to your Cura start and stop commands:
 
 start:
-start_print HOTEND_TEMP={material_print_temperature_layer_0} BED_TEMP={material_bed_temperature_layer_0}
+`start_print HOTEND_TEMP={material_print_temperature_layer_0} BED_TEMP={material_bed_temperature_layer_0}`
 
 stop:
-end_print
+`end_print`
 
 The macro's and some explanation are in the CR6.cfg file. The code is quite readable so please have a look at what it does to understand.
 The start macro does a few things to speed up the start of a print a bit.
