@@ -44,7 +44,7 @@ For convenience precompiled firmwares have been provided in the firmware directo
 
 For all stock creality boards set the following config:
 ```bash
-CD klipper
+cd klipper
 sudo service klipper stop
 make menuconfig
             select microcontroller - "STM32"
