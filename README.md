@@ -2,7 +2,9 @@
 A repository for Klipper firmware details for the Creality CR-6 printers.
 This repo focusses on using Klipper and the Fluidd front end. In this configuration there is no need for OctoPi - Fluidd is way more responsive than OctoPi.
 
-This has been tested on a BTT CR6 board by myself. For the 4.5.2 board I can cornfirm that the firmware connects from the Raspberry Pi to the board but I can't confirm the full configuration. For the 4.5.3 and ERA boards I have no confirmation as yet. If anyone installs Klipper on the stock CR-6 boards please let me know whether everything works as intended.
+This has been tested on a BTT CR6 board by myself. The 4.5.2, 4.5.3 and ERA boards have been reported to work correctly.
+
+Bear in mind that the CR-6 screen will not work (yet) with Klipper. The Fluid interface runs on any PC or mobile device in a standard web browser. As an alternative to the CR-6 screen KlipperScreen can be used. KlipperScreen runs on a series of Raspberry pi touch screens or on an old phone. Please check out the KlipperScreen GitHub for detailed info.
 
 ## Installation description:
 
@@ -105,4 +107,3 @@ Copy this to the [mcu] section of Klipper.cfg and replace the string present the
 ## From this point you should have a working Klipper installation.
 You can proceed to the functionality checks as described on the Klipper site: https://www.klipper3d.org/Config_checks.html
 
- ## IN PROGRESS
