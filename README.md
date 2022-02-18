@@ -6,15 +6,16 @@ This has been tested on a BTT CR6 board by myself. The 4.5.2, 4.5.3 and ERA boar
 
 Bear in mind that the CR-6 screen will not work (yet) with Klipper. The Fluid interface runs on any PC or mobile device in a standard web browser. As an alternative to the CR-6 screen KlipperScreen can be used. KlipperScreen runs on a series of Raspberry pi touch screens or on an old phone. Please check out the KlipperScreen GitHub for detailed info.
 # What is Klipper
-Klipper is a complete package of tools to run your 3D printer consisting of a series of tools
-* Klippy: the service running the printer. Klippy interpretes the gcode and produces move commands and sends these to the printer. Klippy is where the ehavy lifting is actully done
-* Moonraker: The broker. Moonraker handles the communication between Klippy, the vidual front end(s) and hardware on the rPi.
-* Fluidd, Mainsail, KlipperScreen: The display and interface of Klipper. These all 3 do more or less the same (you only need one of them but can run all 3 if wanted). They are the user interface where we put our gcode, do all calibrations, view a bed mesh and so on.
+Klipper is a complete package to run your 3D printer consisting of a series of 3 main tools:
+* Klippy: the service running the printer. Klippy interpretes the gcode, produces move commands and sends these to the printer. Klippy is where the heavy lifting is actully done.
+* Moonraker: The broker. Moonraker handles the communication between Klippy, the visual front end(s) and hardware on the rPi.
+* Fluidd, Mainsail, KlipperScreen: The display and interface of Klipper. These all 3 do more or less the same (you only need one of them but can run all 3 if wanted). They are the user interface where we put/upload our gcode files, do all calibrations, view a bed mesh and so on.
 
 ## Installation description:
 
-Download the FluidPI image from the FluiddPI GitHub repo:
+Download the FluidPI or Mainsail image from the FluiddPI or Mainsail GitHub repo:
 * https://github.com/cadriel/FluiddPI/releases/
+* https://github.com/mainsail-crew/mainsail/releases/
 
 The image is burned to an SDcard as described here:
 * https://www.raspberrypi.org/documentation/installation/installing-images/
@@ -36,6 +37,9 @@ After starting up the PI FIRST run :
           set a new passowrd (optiion 1, S3), optionally change the system name
  sudo reboot
 ```
+
+```The latest Raspberry Pi imager V1.7.1 and higher let us set the username and password from the imager. Also SSH can be enabled from the imager. This is done trough the gearwheel in the bottom right.
+Also Mainsail can now be downloaded and installed trough the Raspberry Imager```
 
 Now we need to copy the printer definition from this repo to the main printer.cfg file. Next to the printer.cfg file also the CR6.cfg file needs to be copied as it contains the specific things of the CR-6 style printers.
 
