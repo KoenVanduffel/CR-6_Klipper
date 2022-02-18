@@ -38,8 +38,11 @@ After starting up the PI FIRST run :
  sudo reboot
 ```
 
-```The latest Raspberry Pi imager V1.7.1 and higher let us set the username and password from the imager. Also SSH can be enabled from the imager. This is done trough the gearwheel in the bottom right.
-Also Mainsail can now be downloaded and installed trough the Raspberry Imager```
+```
+The latest Raspberry Pi imager V1.7.1 and higher let us set the username and password from the imager.
+Also SSH can be enabled from the imager. This is done trough the gearwheel in the bottom right.
+Further Mainsail can now be downloaded and installed directly trough the Raspberry Pi Imager
+```
 
 Now we need to copy the printer definition from this repo to the main printer.cfg file. Next to the printer.cfg file also the CR6.cfg file needs to be copied as it contains the specific things of the CR-6 style printers.
 
