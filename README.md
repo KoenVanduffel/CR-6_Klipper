@@ -5,6 +5,11 @@ This repo focusses on using Klipper and the Fluidd front end. In this configurat
 This has been tested on a BTT CR6 board by myself. The 4.5.2, 4.5.3 and ERA boards have been reported to work correctly.
 
 Bear in mind that the CR-6 screen will not work (yet) with Klipper. The Fluid interface runs on any PC or mobile device in a standard web browser. As an alternative to the CR-6 screen KlipperScreen can be used. KlipperScreen runs on a series of Raspberry pi touch screens or on an old phone. Please check out the KlipperScreen GitHub for detailed info.
+# What is Klipper
+Klipper is a complete package of tools to run your 3D printer consisting of a series of tools
+* Klippy: the service running the printer. Klippy interpretes the gcode and produces move commands and sends these to the printer. Klippy is where the ehavy lifting is actully done
+* Moonraker: The broker. Moonraker handles the communication between Klippy, the vidual front end(s) and hardware on the rPi.
+* Fluidd, Mainsail, KlipperScreen: The display and interface of Klipper. These all 3 do more or less the same (you only need one of them but can run all 3 if wanted). They are the user interface where we put our gcode, do all calibrations, view a bed mesh and so on.
 
 ## Installation description:
 
