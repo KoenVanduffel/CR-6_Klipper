@@ -15,7 +15,7 @@ Klipper is a complete package to run your 3D printer consisting of a series of 3
 
 Download the FluidPI or Mainsail image from the FluiddPI or Mainsail GitHub repo:
 * https://github.com/cadriel/FluiddPI/releases/
-* https://github.com/mainsail-crew/mainsail/releases/
+* https://github.com/mainsail-crew/mainsailOS/releases/
 
 The image is burned to an SDcard as described here:
 * https://www.raspberrypi.org/documentation/installation/installing-images/
