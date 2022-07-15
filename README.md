@@ -12,11 +12,18 @@ Klipper is a complete package to run your 3D printer consisting of 3 main tools:
 * Moonraker: The broker. Moonraker handles the communication between Klippy, the visual front end(s) and hardware on the rPi.
 * Fluidd/Mainsail/KlipperScreen: The Klipper display and User Interface. These all 3 do more or less the same (you only need one of them but can run all 3 if wanted). They are the user interface where we put/upload our gcode files, do all calibrations, view a bed mesh and so on.
 
-## Installation description:
-
-Download the FluidPI or Mainsail image from the FluiddPI or Mainsail GitHub repo:
+## Where to Download Klipper:
+Download the FluidPI or Mainsail image of the Klipper package from the FluiddPI or Mainsail GitHub repo:
 * https://github.com/cadriel/FluiddPI/releases/
 * https://github.com/mainsail-crew/mainsailOS/releases/
+
+## Where to Install Klipper:
+**NOTE: For now, at least, this repo assumes you will install the Mainsail or Fluidd Klipper package on a Raspberry Pi.
+If you intend to install Klipper on a different host, you will need to research the particulars of how that is done, elsewhere.**
+
+Once you have Klipper installed and configured on the Pi, you must also "make" a binary file to flash to your printer's motherboard(s*) (*Klipper can support connecting multiple motherboards to the same Pi and the same printer)  The pi and Klipper will control the printer, via serial communications over the USB cable, with the bin file on the motherboard.
+
+## How to Install the Fluidd or Mainsail Klipper package onto the Pi:
 
 The image is burned to an SDcard as described here:
 * https://www.raspberrypi.org/documentation/installation/installing-images/
@@ -44,19 +51,25 @@ The latest Raspberry Pi imager V1.7.1 and higher lets us set the username and pa
 Also SSH can be enabled from the imager. This is done through the Settings gearwheel in the bottom right corner.
 Mainsail can now be downloaded and installed directly through the Raspberry Pi Imager
 ```
-## Find and copy the CR6.cfg file and the Printer.<motherboard>.cfg file specific to your printer
+## Find the applicable CR6.cfg file and the Printer.<motherboard>.cfg files in (the Klipper_config folder of this repository)[https://github.com/KoenVanduffel/CR-6_Klipper/tree/main/klipper_config]
 
-Copy the printer definition for your motherboard from this repo to the pi and rename it, "klipper.cfg". 
-* Select the appropriate .cfg file for your motherboard and copy it to /home/pi/klipper_config on the pi
-* Rename that file from "printer.<motherboard>.cfg" to "klipper.cfg"
+In the klipper_config folder of this repo, you will find the following files:
+* CR6.cfg - contains the Klipper software configuration information specific to our CR6 printer.  
+  Use that file for all motherboards.
+* Multiple files with the name Printer.<motherboard>.cfg
+  , where <motherboard> is the name of the motherboard supported by that particular file (e.g. printer.Creality-4.5.3.cfg is the file to use if you have either the 4.5.3 or the 1.1.0.3-ERA motherboard from Creality.)  Use ONLY the printer.<motherboard>.cfg named for your motherboard.
 
-Copy the CR6.cfg file from this repo to the pi, as that contains the Klipper configuration instructions specific to our CR6 printer.  
-* For all motherboards copy CR6.cfg to /home/pi/klipper_config on the pi
-* Do NOT rename that file
+##  Install those two cfg files onto the pi
+ 
+Copy CR6.cfg to /home/pi/klipper_config on the pi
+Do NOT rename that file
+
+Copy the appropriate printer.<motherboard>.cfg file to /home/pi/klipper_config on the pi
+Rename that file from "printer.<motherboard>.cfg" to "klipper.cfg"
 
 ## Now make the actual firmware to be flashed to the printer mainboard
 
-For your convenience, precompiled firmwares have been provided in the firmware directory. For now the BTT CR6 is tested and in use by myself. The stock Creality one is only confirmed to connect properly to my old 4.5.2 board. I have not actually printed with it. Please leave feedback if you use them, so I can confirm they are working.
+_NOTE: For your convenience, precompiled firmwares have been provided in the firmware directory. For now the BTT CR6 is tested and in use by myself. The stock Creality one is only confirmed to connect properly to my old 4.5.2 board. I have not actually printed with it. Please leave feedback if you use them, so I can confirm they are working._
 
 For all stock creality boards, set the following config:
 ```bash
@@ -94,20 +107,25 @@ The screen should now look **exactly** like this for the BTT CR6 board:
 make
 ```
 
-The make command will build the actual firmware to be flashed to the printer and output the file /home/pi/klipper/out/klipper.bin
+## Copy the bin file output by the "make" command to an SD Card, and flash it to the printer
+ 
+The make command will build the actual firmware to be flashed to the printer and will output the file as klipper.bin in the pi directory /home/pi/klipper/out/
 
 Download klipper.bin, rename it to firmware.bin and write it to an SD card
 
 <span style="color:red">
 
-## The SDcard HAS TO BE maximum 16 GB formatted as FAT32 with 4096 bits sector size.
+## The SDcard used to flash the motherboard MUST be formatted as FAT32 with 4096 bits sector size.
 
 ## Any other format and the processor simply cannot read the SD card.
 </span>
 
 A micro-SDcard in an SD adapter works perfectly fine, as long as the formatting is correct.
 
-The last step is to give Klipper the address of the USB connection. To obtain the address in the ssh terminal, run:
+## Obtain the USB connection address and update the [mcu] section of Klipper.cfg
+ 
+The last step is to give Klipper the correct address for the USB connection. 
+To obtain the address in the ssh terminal, run:
 
 ```bash
 ls /dev/serial/by-id/*
@@ -118,9 +136,9 @@ the output should look like this (NOTE: the actual address will differ on yours)
 /dev/serial/by-id/usb-Klipper_stm32f103xe_36FFD8054255373740662057-if00
 ```
 
-Copy the actual text of that line ton your system to the [mcu] section of Klipper.cfg to **replace** the string present there
+Replace the placeholder string in the [mcu] section of Klipper.cfg with actual output string displayed in your terminal 
 
-## From this point on, you should have a working Klipper installation, which now needs to be verified fully functional.
+## From this point on, you should have a working Klipper installation, the full functionality of which you should now verify.
 
 Proceed to the functionality checks as described on the Klipper site: https://www.klipper3d.org/Config_checks.html
 
