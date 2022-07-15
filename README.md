@@ -1,4 +1,4 @@
-# Here is Configuration Help for Using Klipper on CR6 printers
+# Here is Help for Installing and Configuring Klipper on CR6 printers
 
 PLEASE NOTE: The intention of this GitHub repository provides pre-compiled resources and "how-to" guideance sufficient for you to find, install and configure Klipper firmware on Creality CR-6 printers.  It is NOT an in-depth tutorial on Klipper itself. You may need to supplement the information here and research answers to some questions elsewhere, before being able to understand and use some elements on this site.
 
@@ -82,7 +82,7 @@ Do NOT rename that file
 Copy the appropriate printer.<motherboard>.cfg file to /home/pi/klipper_config on the pi
 Rename that file from "printer.<motherboard>.cfg" to "klipper.cfg"
 
-## Now make the actual firmware to be flashed to the printer mainboard
+## Now make the Klipper firmware.bin file that you will flash to the printer mainboard
 
 _NOTE: For your convenience, precompiled firmwares have been provided in the firmware directory. For now the BTT CR6 is tested and in use by myself. The stock Creality one is only confirmed to connect properly to my old 4.5.2 board. I have not actually printed with it. Please leave feedback if you use them, so I can confirm they are working._
 
