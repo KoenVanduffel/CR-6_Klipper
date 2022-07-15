@@ -1,13 +1,28 @@
-# CR-6 Klipper configuration helper
-A repository for Klipper firmware details for the Creality CR-6 printers.
-This repo focusses on using Klipper and the Fluidd front end. In this configuration there is no need for OctoPi - Fluidd is way more responsive than OctoPi.
+# Here is Configuration Help for Using Klipper on CR6 printers
 
-This has been tested on a BTT CR6 board by myself. The 4.5.2, 4.5.3 and ERA boards have been reported to work correctly.
+PLEASE NOTE: The intention of this GitHub repository provides pre-compiled resources and "how-to" guideance sufficient for you to find, install and configure Klipper firmware on Creality CR-6 printers.  It is NOT an in-depth tutorial on Klipper itself. You may need to supplement the information here and research answers to some questions elsewhere, before being able to understand and use some elements on this site.
 
-Bear in mind that the CR-6 screen will not work (yet) with Klipper. The Fluid interface runs on any PC or mobile device in a standard web browser. As an alternative to the CR-6 screen, KlipperScreen can be used. KlipperScreen runs on a series of Raspberry pi touch screens or on an old phone. Please check out [the KlipperScreen GitHub](https://github.com/jordanruthe/KlipperScreen) for detailed info.
+This repo focusses on using Klipper with the Fluidd front end. 
+
+With this configuration, there is no need for OctoPi - Fluidd is much more responsive than OctoPi.
+
+These resources have been tested on a CR6-SE printer with a BTT SKR CR6 board. The 4.5.2, 4.5.3 and ERA boards have been reported to work correctly with these resources.
+
+Bear in mind that the CR-6 screen will not work (yet) with Klipper. 
+
+The Fluid interface runs on any PC or mobile device in a standard web browser. 
+
+As an alternative to the CR-6 screen, KlipperScreen can be used. KlipperScreen runs on a series of Raspberry pi touch screens or on an old phone. Please check out [the KlipperScreen GitHub](https://github.com/jordanruthe/KlipperScreen) for detailed info.
 
 # What is Klipper?
-Klipper is a complete package to run your 3D printer consisting of 3 main tools:
+Klipper is a complete package to run your 3D printer.
+
+Unlike Marlin and the Marlin-based Community Firmware:
+* The parts of Klipper that convert the gcode into printer instructions run on a separate host processor (like a Raspberry Pi), not on the printer motherboard
+* Klipper makes a binary file that you do flash to the motherboard, but that firmware is only required to implement the printer instructions given to it by Klipper, over the USB serial interface.
+* Klipper does not (yet*) communicate with the touchscreen hardware, so that touchscreen becomes "irrelevant" and unused, when you are running Klipper. (*We are, however, working on a DWIN display project that we hope will restore some functionality to that screen for the CR6Community members who migrate to Klipper.  Stay tuned!)
+
+The Klipper package is comprised of 3 main tools:
 * Klippy: the service running the printer. Klippy interpretes the gcode, produces move commands and sends these to the printer. Klippy is where the heavy lifting is actually done.
 * Moonraker: The broker. Moonraker handles the communication between Klippy, the visual front end(s) and hardware on the rPi.
 * Fluidd/Mainsail/KlipperScreen: The Klipper display and User Interface. These all 3 do more or less the same (you only need one of them but can run all 3 if wanted). They are the user interface where we put/upload our gcode files, do all calibrations, view a bed mesh and so on.
@@ -25,7 +40,7 @@ Once you have Klipper installed and configured on the Pi, you must also "make" a
 
 ## How to Install the Fluidd or Mainsail Klipper package onto the Pi:
 
-The image is burned to an SDcard as described here:
+You can burn the FLuidd or Mainsail Klipper image to an SDcard usng the Raspberry Pi Imager application, as described here:
 * https://www.raspberrypi.org/documentation/installation/installing-images/
 
 In the Raspberry pi Imager click **Chose OS** - **Use Custom** and select the just downloaded image. The rest of the install procedure is the same as on the raspberry page.
