@@ -4,12 +4,13 @@ This repo focusses on using Klipper and the Fluidd front end. In this configurat
 
 This has been tested on a BTT CR6 board by myself. The 4.5.2, 4.5.3 and ERA boards have been reported to work correctly.
 
-Bear in mind that the CR-6 screen will not work (yet) with Klipper. The Fluid interface runs on any PC or mobile device in a standard web browser. As an alternative to the CR-6 screen KlipperScreen can be used. KlipperScreen runs on a series of Raspberry pi touch screens or on an old phone. Please check out the KlipperScreen GitHub for detailed info.
-# What is Klipper
-Klipper is a complete package to run your 3D printer consisting of a series of 3 main tools:
-* Klippy: the service running the printer. Klippy interpretes the gcode, produces move commands and sends these to the printer. Klippy is where the heavy lifting is actully done.
+Bear in mind that the CR-6 screen will not work (yet) with Klipper. The Fluid interface runs on any PC or mobile device in a standard web browser. As an alternative to the CR-6 screen, KlipperScreen can be used. KlipperScreen runs on a series of Raspberry pi touch screens or on an old phone. Please check out [the KlipperScreen GitHub](https://github.com/jordanruthe/KlipperScreen) for detailed info.
+
+# What is Klipper?
+Klipper is a complete package to run your 3D printer consisting of 3 main tools:
+* Klippy: the service running the printer. Klippy interpretes the gcode, produces move commands and sends these to the printer. Klippy is where the heavy lifting is actually done.
 * Moonraker: The broker. Moonraker handles the communication between Klippy, the visual front end(s) and hardware on the rPi.
-* Fluidd, Mainsail, KlipperScreen: The display and interface of Klipper. These all 3 do more or less the same (you only need one of them but can run all 3 if wanted). They are the user interface where we put/upload our gcode files, do all calibrations, view a bed mesh and so on.
+* Fluidd/Mainsail/KlipperScreen: The Klipper display and User Interface. These all 3 do more or less the same (you only need one of them but can run all 3 if wanted). They are the user interface where we put/upload our gcode files, do all calibrations, view a bed mesh and so on.
 
 ## Installation description:
 
@@ -25,7 +26,7 @@ In the Raspberry pi Imager click **Chose OS** - **Use Custom** and select the ju
 Setup WiFi if needed:
 * https://www.raspberrypi.org/documentation/configuration/wireless/headless.md
 
-The default user and passowrd are **pi** and **raspberry**. We need to change the default password.
+The default user and password are **pi** and **raspberry**. We need to change the default password.
 
 Use MobaXterm (or equivalent) as it is an SSH client and remote file system in one to change the password and copy a few files onto the PI.
 
@@ -34,29 +35,30 @@ For people not used to work with Raspberry PI's https://www.raspberrypi-spy.co.u
 After starting up the PI FIRST run :
 ```bash
  sudo raspi-config
-          set a new passowrd (optiion 1, S3), optionally change the system name
+          set a new password (option 1, S3), optionally change the system name
  sudo reboot
 ```
 
 ```
-The latest Raspberry Pi imager V1.7.1 and higher let us set the username and password from the imager.
-Also SSH can be enabled from the imager. This is done trough the gearwheel in the bottom right.
-Further Mainsail can now be downloaded and installed directly trough the Raspberry Pi Imager
+The latest Raspberry Pi imager V1.7.1 and higher lets us set the username and password from the imager.
+Also SSH can be enabled from the imager. This is done through the Settings gearwheel in the bottom right corner.
+Mainsail can now be downloaded and installed directly through the Raspberry Pi Imager
 ```
+## Find and copy the CR6.cfg file and the Printer.<motherboard>.cfg file specific to your printer
 
-Now we need to copy the printer definition from this repo to the main printer.cfg file. Next to the printer.cfg file also the CR6.cfg file needs to be copied as it contains the specific things of the CR-6 style printers.
+Copy the printer definition for your motherboard from this repo to the pi and rename it, "klipper.cfg". 
+* Select the appropriate .cfg file for your motherboard and copy it to /home/pi/klipper_config on the pi
+* Rename that file from "printer.<motherboard>.cfg" to "klipper.cfg"
 
-Select the config file appropriate for your motherboard and copy it to /home/pi/klipper_config
+Copy the CR6.cfg file from this repo to the pi, as that contains the Klipper configuration instructions specific to our CR6 printer.  
+* For all motherboards copy CR6.cfg to /home/pi/klipper_config on the pi
+* Do NOT rename that file
 
-Rename the file to klipper.cfg
+## Now make the actual firmware to be flashed to the printer mainboard
 
-For all motherboards copy CR6.cfg to /home/pi/klipper_config
+For your convenience, precompiled firmwares have been provided in the firmware directory. For now the BTT CR6 is tested and in use by myself. The stock Creality one is only confirmed to connect properly to my old 4.5.2 board. I have not actually printed with it. Please leave feedback if you use them, so I can confirm they are working.
 
-## Now we can make the actual firmware to be flashed to the printer mainboard
-
-For convenience precompiled firmwares have been provided in the firmware directory. For now the BTT CR6 is tested and in use by myself, the stock Creality one is only confirmed to connect properly to my old 4.5.2 board. I have not actually printed with it. Please mention your mileage so I can confirm their working.
-
-For all stock creality boards set the following config:
+For all stock creality boards, set the following config:
 ```bash
 cd klipper
 sudo service klipper stop
@@ -78,12 +80,12 @@ For the BTT CR6 board:
             set GPIO pins to set at micro-controller startup to "!PA14"
 ```
 
-The screen should now **exactly** look like this for the 4.5.2, 4.5.3 and ERA boards:
+The screen should now look **exactly** like this for the 4.5.2, 4.5.3 and ERA boards:
 
 ![image](https://user-images.githubusercontent.com/13643644/125346549-2e670f80-e35a-11eb-8940-d584d0bb70d7.png)
 
 
-The screen should now **exactly** look like this for the BTT CR6 board:
+The screen should now look **exactly** like this for the BTT CR6 board:
 
 ![image](https://user-images.githubusercontent.com/13643644/123483020-6a823c80-d606-11eb-8dfc-3924ef9c4a7f.png)
 
@@ -94,7 +96,7 @@ make
 
 The make command will build the actual firmware to be flashed to the printer and output the file /home/pi/klipper/out/klipper.bin
 
-download klipper.bin, rename it to firmware.bin and write to an SD card
+Download klipper.bin, rename it to firmware.bin and write it to an SD card
 
 <span style="color:red">
 
@@ -103,19 +105,22 @@ download klipper.bin, rename it to firmware.bin and write to an SD card
 ## Any other format and the processor simply cannot read the SD card.
 </span>
 
-A micro-SDcard in and SD adapter works perfectly fine as long as the formatting is correct.
+A micro-SDcard in an SD adapter works perfectly fine, as long as the formatting is correct.
 
-The last step is to give Klipper the address of the USB connection. To ontain the addres in the ssh terminal run:
+The last step is to give Klipper the address of the USB connection. To obtain the address in the ssh terminal, run:
+
 ```bash
 ls /dev/serial/by-id/*
 ```
 
-the output should looke like this:
+the output should look like this (NOTE: the actual address will differ on yours):
 ```bash
 /dev/serial/by-id/usb-Klipper_stm32f103xe_36FFD8054255373740662057-if00
 ```
 
-Copy this to the [mcu] section of Klipper.cfg and replace the string present there
-## From this point you should have a working Klipper installation.
-You can proceed to the functionality checks as described on the Klipper site: https://www.klipper3d.org/Config_checks.html
+Copy the actual text of that line ton your system to the [mcu] section of Klipper.cfg to **replace** the string present there
+
+## From this point on, you should have a working Klipper installation, which now needs to be verified fully functional.
+
+Proceed to the functionality checks as described on the Klipper site: https://www.klipper3d.org/Config_checks.html
 
