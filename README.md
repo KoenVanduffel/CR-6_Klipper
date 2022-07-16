@@ -69,7 +69,7 @@ The latest Raspberry Pi imager V1.7.1 and higher lets us set the username and pa
 Also SSH can be enabled from the imager. This is done through the Settings gearwheel in the bottom right corner.
 Mainsail can now be downloaded and installed directly through the Raspberry Pi Imager
 ```
-## Find the applicable CR6.cfg file and the Printer._motherboard_.cfg files in (the Klipper_config folder of this repository)[https://github.com/KoenVanduffel/CR-6_Klipper/tree/main/klipper_config]
+## Find the applicable CR6.cfg file and the Printer._motherboard_.cfg files in [the Klipper_config folder of this repository](https://github.com/KoenVanduffel/CR-6_Klipper/tree/main/klipper_config)
 
 In the klipper_config folder of this repo, you will find the following files:
 * CR6.cfg - contains the Klipper software configuration information specific to our CR6 printer.  
