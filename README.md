@@ -3,7 +3,7 @@
 PLEASE NOTE: 
 * This GitHub repository provides pre-compiled resources and "how-to" guideance sufficient for you to find, install and configure Klipper firmware on Creality CR-6 printers.  
 * This is NOT an in-depth tutorial on Klipper itself. You may need to supplement the information here and research answers to some questions elsewhere, before being able to understand and use some elements on this site.
-* YouTuber NERO3D is one reliable source of more detailed information and tutorials for installing and configuring Klipper. This tutorial of his for installing the Fluidd/Klipper combo on an Ender3 V2 is a good example: https://www.youtube.com/watch?v=gfZ9Lbyh8qU (NOTE, though, that NERO3D uses Balener Etcher instead of the Raspberry Pi Imager, in his install)
+* YouTuber NERO3D is one reliable source of more detailed information and tutorials for installing and configuring Klipper. This tutorial of his for installing the Fluidd/Klipper combo on an Ender3 V2 is a good example: https://www.youtube.com/watch?v=gfZ9Lbyh8qU (NOTE, though, that NERO3D uses [Balena Etcher](https://www.balena.io/etcher/) instead of the Raspberry Pi Imager, to flash Fluidd to his SD.)
 
 This repo focusses on using Klipper with the Fluidd front end. 
 
