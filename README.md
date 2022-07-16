@@ -69,21 +69,21 @@ The latest Raspberry Pi imager V1.7.1 and higher lets us set the username and pa
 Also SSH can be enabled from the imager. This is done through the Settings gearwheel in the bottom right corner.
 Mainsail can now be downloaded and installed directly through the Raspberry Pi Imager
 ```
-## Find the applicable CR6.cfg file and the Printer.<motherboard>.cfg files in (the Klipper_config folder of this repository)[https://github.com/KoenVanduffel/CR-6_Klipper/tree/main/klipper_config]
+## Find the applicable CR6.cfg file and the Printer._motherboard_.cfg files in (the Klipper_config folder of this repository)[https://github.com/KoenVanduffel/CR-6_Klipper/tree/main/klipper_config]
 
 In the klipper_config folder of this repo, you will find the following files:
 * CR6.cfg - contains the Klipper software configuration information specific to our CR6 printer.  
   Use that file for all motherboards.
-* Multiple files with the name Printer.<motherboard>.cfg
-  , where <motherboard> is the name of the motherboard supported by that particular file (e.g. printer.Creality-4.5.3.cfg is the file to use if you have either the 4.5.3 or the 1.1.0.3-ERA motherboard from Creality.)  Use ONLY the printer.<motherboard>.cfg named for your motherboard.
+* Multiple files with the name Printer._motherboard_.cfg
+  , where _motherboard_ is the name of the motherboard supported by that particular file (e.g. printer.Creality-4.5.3.cfg is the file to use if you have either the 4.5.3 or the 1.1.0.3-ERA motherboard from Creality.)  Use ONLY the printer._motherboard_.cfg named for your motherboard.
 
 ##  Install those two cfg files onto the pi
  
 Copy CR6.cfg to /home/pi/klipper_config on the pi
 Do NOT rename that file
 
-Copy the appropriate printer.<motherboard>.cfg file to /home/pi/klipper_config on the pi
-Rename that file from "printer.<motherboard>.cfg" to "klipper.cfg"
+Copy the appropriate printer._motherboard_.cfg file to /home/pi/klipper_config on the pi
+Rename that file from "printer._motherboard_.cfg" to "klipper.cfg"
 
 ## Now make the Klipper firmware.bin file that you will flash to the printer mainboard
 
