@@ -4,11 +4,15 @@ PLEASE NOTE:
 * This GitHub repository provides pre-compiled resources and "how-to" guideance sufficient for you to find, install and configure Klipper firmware on Creality CR-6 printers.  
 * This is NOT an in-depth tutorial on Klipper itself. You may need to supplement the information here and research answers to some questions elsewhere, before being able to understand and use some elements on this site.
 
-## Online Tutorial Options
+## Video Tutorial References
 * YouTuber NERO3D is one reliable source of more detailed information and tutorials for installing and configuring Klipper. This tutorial of his for installing the Fluidd/Klipper combo on an Ender3 V2 is a good example: https://www.youtube.com/watch?v=gfZ9Lbyh8qU 
-* NERO3D uses [Balena Etcher](https://www.balena.io/etcher/) instead of the Raspberry Pi Imager, to flash Fluidd to his SD. Either should be ok.  In this author's experience, though, Raspberry Pi Imager succeeded where Balena Etcher consistently reported, "flash Failed!"
+NOTE: NERO3D uses [Balena Etcher](https://www.balena.io/etcher/) instead of the Raspberry Pi Imager, to flash Fluidd to his SD. Either should be ok.  In this author's experience, though, Raspberry Pi Imager succeeded where Balena Etcher consistently reported, "flash Failed!"
 
 * YouTuber Rolohaun provides a clear walk-through of how to use Raspberry Pi Imager and KIAUH, to install Klipper, Moonraker and Mainsail, in a 3-part video series starting here: https://www.youtube.com/watch?v=OmBIHB9TFgc  
+
+* If you are not sure whether to use Fluidd or Mainsail as your web-enabled front-end, YouTuber JJ Shankles has posted a comparison of Fluidd vs Mainsail in 2022, here: https://www.youtube.com/watch?v=BHVVcjtWTyA
+
+## Introduction to this Repo
 
 This repo focusses on using Klipper with the Fluidd front end. 
 
