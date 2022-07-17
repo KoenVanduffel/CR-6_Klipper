@@ -22,7 +22,7 @@ The resources in this repo have been tested on a CR6-SE printer with a BTT SKR C
 
 Bear in mind that the CR-6 screen will not work (yet) with Klipper. 
 
-The Fluid interface runs on any PC or mobile device in a standard web browser. 
+The Fluidd interface is web-based, so it can be accessed and operated from any PC or mobile device, using a standard web browser. 
 
 As an alternative to the CR-6 screen, KlipperScreen can be used. KlipperScreen runs on a series of Raspberry pi touch screens or on an old phone. Please check out [the KlipperScreen GitHub](https://github.com/jordanruthe/KlipperScreen) for detailed info.
 
