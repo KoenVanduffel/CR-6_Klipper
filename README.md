@@ -84,7 +84,7 @@ Copy CR6.cfg to /home/pi/klipper_config on the pi
 Do NOT rename that file
 
 Copy the appropriate printer._motherboard_.cfg file to /home/pi/klipper_config on the pi
-Rename that file from "printer._motherboard_.cfg" to "klipper.cfg"
+Rename that file from "printer._motherboard_.cfg" to "printer.cfg"
 
 ## Now make the Klipper firmware.bin file that you will flash to the printer mainboard
 
@@ -141,7 +141,7 @@ Download klipper.bin, rename it to firmware.bin and write it to an SD card
 
 A micro-SDcard in an SD adapter works perfectly fine, as long as the formatting is correct.
 
-## Obtain the USB connection address and update the [mcu] section of Klipper.cfg
+## Obtain the USB connection address and update the [mcu] section of printer.cfg
  
 The last step is to give Klipper the correct address for the USB connection. 
 To obtain the address in the ssh terminal, run:
@@ -155,7 +155,7 @@ the output should look like this (NOTE: the actual address will differ on yours)
 /dev/serial/by-id/usb-Klipper_stm32f103xe_36FFD8054255373740662057-if00
 ```
 
-Replace the placeholder string in the [mcu] section of Klipper.cfg with actual output string displayed in your terminal 
+Replace the placeholder string in the [mcu] section of print.cfg with actual output string displayed in your terminal 
 
 ## From this point on, you should have a working Klipper installation, the full functionality of which you should now verify.
 
