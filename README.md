@@ -9,9 +9,9 @@ PLEASE NOTE:
 
 This repo focusses on using Klipper with the Fluidd front end. 
 
-With this configuration, there is no need for OctoPi - Fluidd is much more responsive than OctoPi.
+With this configuration, there is no need for OctoPi - Fluidd is much more responsive than OctoPi. (Nonetheless, you can also use Octoprint as your front-end to Klipper - e.g. to contnue to use some favourite plug-in(s).)
 
-These resources have been tested on a CR6-SE printer with a BTT SKR CR6 board. The 4.5.2, 4.5.3 and ERA boards have been reported to work correctly with these resources.
+The resources in this repo have been tested on a CR6-SE printer with a BTT SKR CR6 board. The 4.5.2, 4.5.3 and ERA boards have been reported to work correctly with these resources.
 
 Bear in mind that the CR-6 screen will not work (yet) with Klipper. 
 
@@ -158,7 +158,7 @@ the output should look like this (NOTE: the actual address will differ on yours)
 
 Replace the placeholder string in the [mcu] section of print.cfg with actual output string displayed in your terminal 
 
-## From this point on, you should have a working Klipper installation, the full functionality of which you should now verify.
+## From this point on, you should have a working Klipper installation, the full functionality of which you should now verify (as described on the Klipper site: https://www.klipper3d.org/Config_checks.html)
 
-Proceed to the functionality checks as described on the Klipper site: https://www.klipper3d.org/Config_checks.html
+##NOTE: Moonraker may need further configuration, to properly integate Klipper, Fluidd and any other apps (e.g. Octoprint, KlipperScreen, Cura).  At least PolKit needs to be installed.  Review all of the Fluidd configuration requirements here: https://docs.fluidd.xyz/configuration/moonraker and follow the embedded link to "Arskine's documentation" for a detailed discussion of Moonraker.
 
