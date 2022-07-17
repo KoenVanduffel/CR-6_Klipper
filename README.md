@@ -85,6 +85,7 @@ In the klipper_config folder of this repo, you will find the following files:
   Use that file for all motherboards.
 * Multiple files with the name Printer._motherboard_.cfg
   , where _motherboard_ is the name of the motherboard supported by that particular file (e.g. printer.Creality-4.5.3.cfg is the file to use if you have either the 4.5.3 or the 1.1.0.3-ERA motherboard from Creality.)  Use ONLY the printer._motherboard_.cfg named for your motherboard.
+  * **NOTE: IF you chose to install the MainsailOS package instead of the Fluidd package, you must also edit the printer._motherboard_.cfg file to replace [include fluidd.cfg] with [include mainsail.cfg]**
 
 ##  Install those two cfg files onto the pi
  
