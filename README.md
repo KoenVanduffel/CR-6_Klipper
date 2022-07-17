@@ -4,12 +4,15 @@ PLEASE NOTE:
 * This GitHub repository provides pre-compiled resources and "how-to" guideance sufficient for you to find, install and configure Klipper firmware on Creality CR-6 printers.  
 * This is NOT an in-depth tutorial on Klipper itself. You may need to supplement the information here and research answers to some questions elsewhere, before being able to understand and use some elements on this site.
 
+## Online Tutorial Options
 * YouTuber NERO3D is one reliable source of more detailed information and tutorials for installing and configuring Klipper. This tutorial of his for installing the Fluidd/Klipper combo on an Ender3 V2 is a good example: https://www.youtube.com/watch?v=gfZ9Lbyh8qU 
 * NERO3D uses [Balena Etcher](https://www.balena.io/etcher/) instead of the Raspberry Pi Imager, to flash Fluidd to his SD. Either should be ok.  In this author's experience, though, Raspberry Pi Imager succeeded where Balena Etcher consistently reported, "flash Failed!"
 
+* YouTuber Rolohaun provides a clear walk-through of how to use Raspberry Pi Imager and KIAUH, to install Klipper, Moonraker anf Mainsail, in a 3-part video series starting here: https://www.youtube.com/watch?v=OmBIHB9TFgc  
+
 This repo focusses on using Klipper with the Fluidd front end. 
 
-With this configuration, there is no need for OctoPi - Fluidd is much more responsive than OctoPi. (Nonetheless, you can also use Octoprint as your front-end to Klipper - e.g. to contnue to use some favourite plug-in(s).)
+With this configuration, there is no need for OctoPi - Fluidd is much more responsive than OctoPi. (Nonetheless, you can also use Octoprint as your front-end to Klipper - e.g. to contnue to use some favourite plug-in(s). KIAUH can help with that, also.)
 
 The resources in this repo have been tested on a CR6-SE printer with a BTT SKR CR6 board. The 4.5.2, 4.5.3 and ERA boards have been reported to work correctly with these resources.
 
