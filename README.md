@@ -89,8 +89,6 @@ Rename that file from "printer._motherboard_.cfg" to "printer.cfg"
 
 ## Now make the Klipper firmware.bin file that you will flash to the printer mainboard
 
-_NOTE: For your convenience, precompiled firmwares have been provided in the firmware directory. For now the BTT CR6 is tested and in use by myself. The stock Creality one is only confirmed to connect properly to my old 4.5.2 board. I have not actually printed with it. Please leave feedback if you use them, so I can confirm they are working._
-
 For all stock creality boards, set the following config:
 ```bash
 cd klipper
